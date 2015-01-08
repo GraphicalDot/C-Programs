@@ -11,30 +11,15 @@ struct student {
 };
 
 void main(){
-	struct student kaali;
-	kaali.name = "ali";
-	kaali.age = 29;
-	kaali.year = 424;
-	kaali.gpa = 5.9;
+	struct student kaali = {"ali", 29, 424, 5.9};
 	printf (" name = %s, \n age = %d,\n year=%d,\n gpa=%f\n", kaali.name, kaali.age, kaali.year, kaali.gpa);
 	
-	printf ("The value is %p", &(kaali.name));
-
-	int len = strlen(kaali.name);
-	char *ptr; 
-
-	ptr = kaali.name;
-	int i = 0;
-	printf ("The value is %p", ptr);
-	printf ("The value is %s", ptr);
-
-	/*
-	while(i < len){
-		printf ("The value is %c and address  %p\n ", *ptr, ptr);
-		*ptr++;
-
-	};
-	*/
+	
+	struct student *struct_pointer ;
+	struct_pointer = &kaali;
+	
+	printf (" name = %s, \n age = %d,\n year=%d,\n gpa=%f\n", (*struct_pointer).name, 
+			(*struct_pointer).age, (*struct_pointer).year, (*struct_pointer).gpa);
 
 	return ;
 };
